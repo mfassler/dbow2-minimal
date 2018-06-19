@@ -1,0 +1,15 @@
+Package: dbow2-minimal
+Version: 0.1-1
+Section: libs
+Priority: optional
+Architecture: amd64
+Homepage: https://github.com/mfassler/dbow2-minimal.git
+Maintainer: No Name <mfassler@users.noreply.github.com>
+Description: binary Bag-Of-Words
+ A library for indexing and converting images into a bag-of-word
+ representation. It implements a hierarchical tree for 
+ approximating nearest neighbours in the image feature space and
+ creating a visual vocabulary. DBoW2 also implements an image 
+ database with inverted and direct files to index images and
+ enabling quick queries and feature comparisons.
+
