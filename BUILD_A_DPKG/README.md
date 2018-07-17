@@ -6,22 +6,13 @@ Clone and build it:
 
 git clone https://github.com/mfassler/dbow2-minimal
 
-cd dbow2-minimal
-mkdir build
-cd build
-
-cmake .. \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_CXX_FLAGS="-std=c++11"
-
 make -j
 ```
 
 Now, install it into a "buildroot":
 ```bash
 
-make install DESTDIR=~/buildroot_dbow2
+make install DESTDIR=~/buildroot_dbow2 PREFIX=/usr
 
 ```
 
