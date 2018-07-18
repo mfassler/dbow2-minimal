@@ -10,7 +10,9 @@ TARGET = lib/libDBoW2.so
 OBJECTS = DBoW2/BowVector.o 
 OBJECTS += DBoW2/FORB.o 
 OBJECTS += DBoW2/FeatureVector.o 
-OBJECTS += DBoW2/ScoringObject.o 
+OBJECTS += DBoW2/ScoringObject.o
+
+## These are still needed by libORB_SLAM2.so, unfortunately:
 OBJECTS += DUtils/Random.o 
 OBJECTS += DUtils/Timestamp.o 
 

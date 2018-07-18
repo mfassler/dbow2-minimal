@@ -31,7 +31,8 @@
 #include "BowVector.h"
 #include "ScoringObject.h"
 
-#include "../DUtils/Random.h"
+#include <sys/time.h>
+//#include "../DUtils/Random.h"
 
 using namespace std;
 
@@ -844,16 +845,25 @@ void TemplatedVocabulary<TDescriptor,F>::initiateClustersKMpp(
   // 5. Now that the initial centers have been chosen, proceed using standard k-means 
   //    clustering.
 
-  DUtils::Random::SeedRandOnce();
+  //DUtils::Random::SeedRandOnce();
+  srand((unsigned)time(NULL));
 
   clusters.resize(0);
   clusters.reserve(m_k);
   vector<double> min_dists(pfeatures.size(), std::numeric_limits<double>::max());
   
   // 1.
-  
-  int ifeature = DUtils::Random::RandomInt(0, pfeatures.size()-1);
-  
+
+
+//int DUtils::Random::RandomInt(int min, int max) {
+//       int d = max - min + 1;
+//       return int(((double)rand()/((double)RAND_MAX + 1.0)) * d) + min;
+//}
+
+//  int ifeature = DUtils::Random::RandomInt(0, pfeatures.size()-1);
+  int ifeature = int(((double)rand()/((double)RAND_MAX + 1.0)) * pfeatures.size());
+
+
   // create first cluster
   clusters.push_back(*pfeatures[ifeature]);
 
@@ -887,7 +897,9 @@ void TemplatedVocabulary<TDescriptor,F>::initiateClustersKMpp(
       double cut_d;
       do
       {
-        cut_d = DUtils::Random::RandomValue<double>(0, dist_sum);
+        //cut_d = DUtils::Random::RandomValue<double>(0, dist_sum);
+        cut_d = (float)rand() / (float)RAND_MAX * dist_sum;
+
       } while(cut_d == 0.0);
 
       double d_up_now = 0;
